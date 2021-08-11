@@ -1,0 +1,24 @@
+{
+  "name": "buy-and-sell",
+  "version": "1.0.0",
+  "description": "Куплю. Продам.",
+  "main": "./src/service/service.js",
+  "scripts": {
+    "test": "npm run eslint",
+    "eslint": "eslint --ext .js src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ekaterina-T/126945-typoteka-3.git"
+  },
+  "author": "Екатерина Тараканова",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ekaterina-T/126945-typoteka-3/issues"
+  },
+  "homepage": "https://github.com/Ekaterina-T/126945-typoteka-3#readme",
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-htmlacademy": "0.6.0"
+  }
+}
