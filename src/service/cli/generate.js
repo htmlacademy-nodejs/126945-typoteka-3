@@ -1,6 +1,7 @@
 `use strict`;
 
-const fs = require(`fs`);
+const chalk = require(`chalk`);
+const fs = require(`fs`).promises;
 const {getRandomInt, shuffle} = require(`../../../utils`);
 const {ExitCode} = require(`../../../constants`);
 
@@ -83,24 +84,24 @@ const gereneratePosts = (count) => {
 
 module.exports = {
   name: `--generate`,
-  run(count) {
+  async run(count) {
 
     count = Number.parseInt(count, 10) || DEFAULT_COUNT;
     if (count > LIMIT_OF_POSTS) {
-      console.error(`Не больше ${LIMIT_OF_POSTS} публикаций`);
+      console.error(chalk.red(`Не больше ${LIMIT_OF_POSTS} публикаций`));
       process.exit(ExitCode.failure);
     }
 
     const posts = JSON.stringify(gereneratePosts(count));
 
-    fs.writeFile(FILE_NAME, posts, (error) => {
-
-      if (error) {
-        console.error(`Не могу создать файл...`);
-        process.exit(ExitCode.failure);
-      }
-      console.error(`Файл mock.json успешно создан.`);
+    try {
+      await fs.writeFile(FILE_NAME, posts);
+      console.log(chalk.green(`Файл mock.json успешно создан.`));
       process.exit(ExitCode.success);
-    });
+    } catch (e) {
+      console.error(chalk.red(`Не могу создать файл...`));
+      console.error(chalk.red(e));
+      process.exit(ExitCode.failure);
+    }
   }
 };
