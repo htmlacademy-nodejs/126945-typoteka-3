@@ -10,7 +10,7 @@ const FILE_ANNOUNCES_PATH = `./data/announces.txt`;
 const FILE_CATEGORIES_PATH = `./data/categories.txt`;
 
 const DEFAULT_COUNT = 1;
-const FILE_NAME = `mock.json`;
+const FILE_NAME = `mocks.json`;
 
 const MILLISEC_IN_DAY = 24 * 60 * 60 * 1000;
 const LIMIT_OF_POSTS = 1000;
