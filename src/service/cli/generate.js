@@ -18,11 +18,12 @@ const LIMIT_OF_POSTS = 1000;
 const readDataFromFile = async (pathToFile) => {
   try {
     const data = await fs.readFile(pathToFile, `utf8`);
-    return data.trim().split(`\n`).map(el => el.trim()).filter(el => el.length > 0);
+    return data.trim().split(`\n`).map((el) => el.trim()).filter((el) => el.length > 0);
   } catch (e) {
     console.error(chalk.red(`Ошибка при чтении файла`));
     console.error(chalk.red(e));
     process.exit(ExitCode.failure);
+    return [];
   }
 };
 
